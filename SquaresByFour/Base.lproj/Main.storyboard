@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iTx-pv-JXj">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--^2 x 4-->
+        <scene sceneID="JWU-B1-EHv">
+            <objects>
+                <viewController id="DJq-Qn-MRc" customClass="ELInitialViewController" customModule="SquaresByFour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QaL-G6-Deg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Worldwide Here!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2U-eE-oho">
+                                <rect key="frame" x="99" y="214" width="177" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="AIY-Oq-3tM"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18F-86-6LS">
+                                <rect key="frame" x="112" y="284" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="Bx8-a8-lZy"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="18F-86-6LS" firstAttribute="centerX" secondItem="WRb-se-HuX" secondAttribute="centerX" id="8py-5F-hQh"/>
+                            <constraint firstItem="18F-86-6LS" firstAttribute="top" secondItem="Y2U-eE-oho" secondAttribute="bottom" constant="40" id="9e3-3r-Auy"/>
+                            <constraint firstItem="Y2U-eE-oho" firstAttribute="centerX" secondItem="WRb-se-HuX" secondAttribute="centerX" id="Ui5-Vj-OOt"/>
+                            <constraint firstItem="Y2U-eE-oho" firstAttribute="top" secondItem="WRb-se-HuX" secondAttribute="top" constant="150" id="mbV-qf-hgs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WRb-se-HuX"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="^2 x 4" id="ZhF-hz-cmB"/>
+                    <connections>
+                        <outlet property="findByInputTextField" destination="Y2U-eE-oho" id="UZD-l2-Uot"/>
+                        <outlet property="findByLLButton" destination="18F-86-6LS" id="fsh-4z-IUE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QMI-Ea-zPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="274.39999999999998" y="-356.67166416791605"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cMd-Jx-tmF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iTx-pv-JXj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JSK-Xu-Acx">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DJq-Qn-MRc" kind="relationship" relationship="rootViewController" id="vEB-bq-lnE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGQ-I7-qOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-642" y="-357"/>
+        </scene>
+    </scenes>
+</document>
