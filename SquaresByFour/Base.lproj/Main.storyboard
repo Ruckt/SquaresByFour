@@ -32,6 +32,9 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="Bx8-a8-lZy"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="searchTappedWithSender:" destination="DJq-Qn-MRc" eventType="touchUpInside" id="TUt-JN-8OS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -46,7 +49,7 @@
                     <navigationItem key="navigationItem" title="^2 x 4" id="ZhF-hz-cmB"/>
                     <connections>
                         <outlet property="findByInputTextField" destination="Y2U-eE-oho" id="UZD-l2-Uot"/>
-                        <outlet property="findByLLButton" destination="18F-86-6LS" id="fsh-4z-IUE"/>
+                        <outlet property="searchButton" destination="18F-86-6LS" id="fsh-4z-IUE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMI-Ea-zPy" userLabel="First Responder" sceneMemberID="firstResponder"/>

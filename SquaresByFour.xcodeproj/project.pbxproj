@@ -8,24 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		E24D30091FFFDC2B002DE96F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D30081FFFDC2B002DE96F /* AppDelegate.swift */; };
-		E24D300B1FFFDC2B002DE96F /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D300A1FFFDC2B002DE96F /* MasterViewController.swift */; };
+		E24D300B1FFFDC2B002DE96F /* ELInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D300A1FFFDC2B002DE96F /* ELInitialViewController.swift */; };
 		E24D300D1FFFDC2B002DE96F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D300C1FFFDC2B002DE96F /* DetailViewController.swift */; };
 		E24D30101FFFDC2B002DE96F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E24D300E1FFFDC2B002DE96F /* Main.storyboard */; };
 		E24D30121FFFDC2B002DE96F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E24D30111FFFDC2B002DE96F /* Assets.xcassets */; };
 		E24D30151FFFDC2B002DE96F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E24D30131FFFDC2B002DE96F /* LaunchScreen.storyboard */; };
 		E24D301D1FFFECD4002DE96F /* ELFourSquareCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D301C1FFFECD4002DE96F /* ELFourSquareCodes.swift */; };
+		E24D301F20000B06002DE96F /* ELFetchServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D301E20000B06002DE96F /* ELFetchServices.swift */; };
+		E24D302220000FB8002DE96F /* ELNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D302120000FB8002DE96F /* ELNetworkManager.swift */; };
+		E24D302520001199002DE96F /* FourSquareVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D302420001199002DE96F /* FourSquareVenue.swift */; };
+		E24D302720001290002DE96F /* FourSquareItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D302620001290002DE96F /* FourSquareItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E24D30051FFFDC2B002DE96F /* SquaresByFour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquaresByFour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E24D30081FFFDC2B002DE96F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E24D300A1FFFDC2B002DE96F /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		E24D300A1FFFDC2B002DE96F /* ELInitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELInitialViewController.swift; sourceTree = "<group>"; };
 		E24D300C1FFFDC2B002DE96F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E24D300F1FFFDC2B002DE96F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E24D30111FFFDC2B002DE96F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E24D30141FFFDC2B002DE96F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E24D30161FFFDC2B002DE96F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E24D301C1FFFECD4002DE96F /* ELFourSquareCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELFourSquareCodes.swift; sourceTree = "<group>"; };
+		E24D301E20000B06002DE96F /* ELFetchServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELFetchServices.swift; sourceTree = "<group>"; };
+		E24D302120000FB8002DE96F /* ELNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELNetworkManager.swift; sourceTree = "<group>"; };
+		E24D302420001199002DE96F /* FourSquareVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareVenue.swift; sourceTree = "<group>"; };
+		E24D302620001290002DE96F /* FourSquareItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,15 +67,35 @@
 			isa = PBXGroup;
 			children = (
 				E24D30081FFFDC2B002DE96F /* AppDelegate.swift */,
-				E24D300A1FFFDC2B002DE96F /* MasterViewController.swift */,
+				E24D300A1FFFDC2B002DE96F /* ELInitialViewController.swift */,
 				E24D300C1FFFDC2B002DE96F /* DetailViewController.swift */,
+				E24D301C1FFFECD4002DE96F /* ELFourSquareCodes.swift */,
+				E24D30232000117A002DE96F /* Models */,
+				E24D302020000B0F002DE96F /* Networking */,
 				E24D300E1FFFDC2B002DE96F /* Main.storyboard */,
 				E24D30111FFFDC2B002DE96F /* Assets.xcassets */,
 				E24D30131FFFDC2B002DE96F /* LaunchScreen.storyboard */,
 				E24D30161FFFDC2B002DE96F /* Info.plist */,
-				E24D301C1FFFECD4002DE96F /* ELFourSquareCodes.swift */,
 			);
 			path = SquaresByFour;
+			sourceTree = "<group>";
+		};
+		E24D302020000B0F002DE96F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E24D302120000FB8002DE96F /* ELNetworkManager.swift */,
+				E24D301E20000B06002DE96F /* ELFetchServices.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E24D30232000117A002DE96F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E24D302620001290002DE96F /* FourSquareItem.swift */,
+				E24D302420001199002DE96F /* FourSquareVenue.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +171,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E24D300D1FFFDC2B002DE96F /* DetailViewController.swift in Sources */,
-				E24D300B1FFFDC2B002DE96F /* MasterViewController.swift in Sources */,
+				E24D300B1FFFDC2B002DE96F /* ELInitialViewController.swift in Sources */,
+				E24D302720001290002DE96F /* FourSquareItem.swift in Sources */,
+				E24D301F20000B06002DE96F /* ELFetchServices.swift in Sources */,
 				E24D301D1FFFECD4002DE96F /* ELFourSquareCodes.swift in Sources */,
 				E24D30091FFFDC2B002DE96F /* AppDelegate.swift in Sources */,
+				E24D302220000FB8002DE96F /* ELNetworkManager.swift in Sources */,
+				E24D302520001199002DE96F /* FourSquareVenue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
