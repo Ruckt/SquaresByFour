@@ -12,7 +12,7 @@ import UIKit
 class ELFetchServices {
     
     
-    func fetchFourSquareService(url: URL, completion: @escaping ([String]?) -> Void) {
+    func fetchFourSquareServiceItems(url: URL, completion: @escaping (FourSquareItemsArray?) -> Void) {
         
         let urlRequest = URLRequest(url: url)
         let session = URLSession.shared
@@ -30,23 +30,21 @@ class ELFetchServices {
                 completion(nil)
                 return
             }
-            print("************")
-            print(responseData)
-            print("************")
-            print(urlResponse!)
-            print("************")
             
-            completion(nil)
-//            do {
-//                let decoded = try JSONDecoder().decode(ELRelatedTopics.self, from: responseData)
-//                let characterProfiles = decoded.RelatedTopics
-//                completion(characterProfiles)
-//                
-//            } catch {
-//                print("Error trying to convert the responseData to JSON using DeCodable")
-//                completion(nil)
-//                return
-//            }
+            do {
+                let decoded = try JSONDecoder().decode(FourSquareResponse.self, from: responseData)
+                
+                let groups  = decoded.response.groups
+                
+                if groups.count > 0 {
+                    completion(groups[0].items)
+                }
+                completion(nil)
+            } catch {
+                print("Error trying to convert the responseData to JSON using DeCodable")
+                completion(nil)
+                return
+            }
         }
         task.resume()
     }

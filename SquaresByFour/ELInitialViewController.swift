@@ -29,8 +29,12 @@ class ELInitialViewController: UIViewController {
     }
     
     @IBAction func searchTapped(sender: UIButton) {
-        networkManager.requestVenues { (strings) in
-            print("yeah")
+        networkManager.requestItemsForLocation { (items) in
+            if let items = items {
+                print(items)
+            } else {
+                print("nEEEAH")
+            }
         }
     }
     

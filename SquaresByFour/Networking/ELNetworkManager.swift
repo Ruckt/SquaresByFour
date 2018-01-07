@@ -10,24 +10,21 @@ import Foundation
 
 class ELNetworkManager {
     
-    func requestVenues(completion: @escaping ([String]?) -> Void) {
+    func requestItemsForLocation(completion: @escaping (FourSquareItemsArray?) -> Void) {
         
        // if forTextEntry == true {
 //                    let url = "https://api.foursquare.com/v2/search/recommendations?ll=\(currentLocation.latitude),\(currentLocation.longitude)&v=20160607&intent=coffee&limit=15&client_id=\(client_id)&client_secret=\(client_secret)"
 //
 //            let url = "https://api.foursquare.com/v2/venues/explore?near=Philadelphia&oauth_token=QRG32ZJ2S5D0FN1OC5QL5OZUAXQX11KR41SFDF1ZY2NS5AP1&v=20180105
         let textLocation = "Philadelphia"
-        let stringHTTP = "https://api.foursquare.com/v2/venues/explore?near=\(textLocation)&client_id=\(ELFourSquareCodes.clientId)&client_secret=\(ELFourSquareCodes.clientSecret)"
+        let stringHTTP = "https://api.foursquare.com/v2/venues/explore?near=\(textLocation)&client_id=\(ELFourSquareCodes.clientId)&client_secret=\(ELFourSquareCodes.clientSecret)&v=20180110"
     //    }
         let url = URL(string: stringHTTP)
         
-        ELFetchServices().fetchFourSquareService(url: url!, completion: { [weak self] (venuesArray) in
+        ELFetchServices().fetchFourSquareServiceItems(url: url!, completion: { (fourSquareItems) in
 
-            if let venuesArray = venuesArray {
-//                self?.requestImageDataForProfiles(characterProfiles, completion: { (venuesArray) in
-                   completion(venuesArray)
-//                })
-                
+            if let items = fourSquareItems {
+                completion(items)
             } else {
                 completion(nil)
             }

@@ -18,6 +18,7 @@
 		E24D302220000FB8002DE96F /* ELNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D302120000FB8002DE96F /* ELNetworkManager.swift */; };
 		E24D302520001199002DE96F /* FourSquareVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D302420001199002DE96F /* FourSquareVenue.swift */; };
 		E24D302720001290002DE96F /* FourSquareItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D302620001290002DE96F /* FourSquareItem.swift */; };
+		E24D30292001A130002DE96F /* FourSquareResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D30282001A130002DE96F /* FourSquareResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E24D302120000FB8002DE96F /* ELNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELNetworkManager.swift; sourceTree = "<group>"; };
 		E24D302420001199002DE96F /* FourSquareVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareVenue.swift; sourceTree = "<group>"; };
 		E24D302620001290002DE96F /* FourSquareItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareItem.swift; sourceTree = "<group>"; };
+		E24D30282001A130002DE96F /* FourSquareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		E24D30232000117A002DE96F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E24D30282001A130002DE96F /* FourSquareResponse.swift */,
 				E24D302620001290002DE96F /* FourSquareItem.swift */,
 				E24D302420001199002DE96F /* FourSquareVenue.swift */,
 			);
@@ -174,6 +177,7 @@
 				E24D300B1FFFDC2B002DE96F /* ELInitialViewController.swift in Sources */,
 				E24D302720001290002DE96F /* FourSquareItem.swift in Sources */,
 				E24D301F20000B06002DE96F /* ELFetchServices.swift in Sources */,
+				E24D30292001A130002DE96F /* FourSquareResponse.swift in Sources */,
 				E24D301D1FFFECD4002DE96F /* ELFourSquareCodes.swift in Sources */,
 				E24D30091FFFDC2B002DE96F /* AppDelegate.swift in Sources */,
 				E24D302220000FB8002DE96F /* ELNetworkManager.swift in Sources */,

@@ -10,8 +10,17 @@ import Foundation
 
 typealias ELVenuesArray = [FourSquareVenue]
 
-struct FourSquareVenue { //: Codable {
-//    let firstURL: String
-//    let description: String
-//    let icon: Icon
+struct FourSquareVenue: Codable {
+    let name: String
+
+//    enum CodingKeys: String, CodingKey {
+//        case name = "name"
+//    }
 }
+
+//extension FourSquareVenue {
+//    init(from decoder: Decoder) throws {
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+//        name  = try values.decode(String.self, forKey: .name)
+//    }
+//}
