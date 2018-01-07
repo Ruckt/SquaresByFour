@@ -18,7 +18,6 @@ class ELFetchServices {
         let session = URLSession.shared
         
         let task = session.dataTask(with: urlRequest) { (data, urlResponse, error) in
-            
             guard error == nil else {
                 print("Error while fetching image data: \(error!)")
                 completion(nil)
@@ -38,8 +37,10 @@ class ELFetchServices {
                 
                 if groups.count > 0 {
                     completion(groups[0].items)
+                    return
+                } else {
+                    completion(nil)
                 }
-                completion(nil)
             } catch {
                 print("Error trying to convert the responseData to JSON using DeCodable")
                 completion(nil)

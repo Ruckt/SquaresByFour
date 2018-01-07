@@ -27,11 +27,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18F-86-6LS">
-                                <rect key="frame" x="112" y="284" width="150" height="30"/>
+                                <rect key="frame" x="87" y="284" width="200" height="30"/>
+                                <color key="backgroundColor" red="0.47179845190000003" green="0.48709290799999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="Bx8-a8-lZy"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Bx8-a8-lZy"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="searchTappedWithSender:" destination="DJq-Qn-MRc" eventType="touchUpInside" id="TUt-JN-8OS"/>
                                 </connections>

@@ -7,69 +7,95 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ELInitialViewController: UIViewController {
+class ELInitialViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var findByInputTextField: UITextField!
     
     let networkManager = ELNetworkManager()
-//    let locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
 //    var currentLocation:CLLocationCoordinate2D!
 //    var flag = true
     
+    let searchByInputButtonTitle = "Search Your WorldWide Location"
+    let searchByLocationButtonTitle = "Search Near You"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        findByInputTextField.delegate = self
+        findByInputTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
         
-        //
-//        // set up location manager
-//        locationManager.delegate = self
-//        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        
+        decorateButton()
     }
     
+    func decorateButton() {
+        let text = ((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) ? searchByLocationButtonTitle : searchByInputButtonTitle)
+        searchButton.setTitle(text, for: .normal)
+    }
+    
+    // MARK: - IBAction -
     @IBAction func searchTapped(sender: UIButton) {
-        networkManager.requestItemsForLocation { (items) in
+        self.findByInputTextField.resignFirstResponder()
+        
+        if let input = self.findByInputTextField.text,
+            input != "" {
+            networkRequestItemsFor(parameter: "near", location: input.removingWhitespaces())
+        }
+        
+        //getCurrentLocation()
+    }
+    
+    func networkRequestItemsFor(parameter: String, location: String) {
+        
+        networkManager.requestItemsFor(parameter, location, completion: { (items) in
             if let items = items {
-                print(items)
+                for item in items {
+                    print("*******")
+                    print(item.venue.name)
+                }
             } else {
-                print("nEEEAH")
+                print("Some sort of network request failure, try again.")
             }
+        })
+    }
+    
+    // MARK: - Location Methods -
+    
+    func getCurrentLocation() {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
         }
     }
     
-//    // MARK: - Table View
-//
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return objects.count
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-//
-//        let object = objects[indexPath.row] as! NSDate
-//        cell.textLabel!.text = object.description
-//        return cell
-//    }
-//
-//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        // Return false if you do not want the specified item to be editable.
-//        return true
-//    }
-//
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            objects.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        } else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-//        }
-//    }
+    // MARK: - Location Manager Delegate -
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if let gpsLocation:CLLocationCoordinate2D = locations.last?.coordinate {
+            print(gpsLocation)
+        }
 
+        locationManager.stopUpdatingLocation()
+        // set a flag so segue is only called once
+//        if flag {
+//            flag = false
+//            performSegue(withIdentifier: "showSearch", sender: self)
+//        }
+    }
+    
+    // MARK: - Text Field Delegate -
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if let text = textField.text,
+            text != "" {
+            
+            print(text)
+        }
+    }
 
 }
 

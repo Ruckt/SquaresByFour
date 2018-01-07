@@ -19,6 +19,7 @@
 		E24D302520001199002DE96F /* FourSquareVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D302420001199002DE96F /* FourSquareVenue.swift */; };
 		E24D302720001290002DE96F /* FourSquareItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D302620001290002DE96F /* FourSquareItem.swift */; };
 		E24D30292001A130002DE96F /* FourSquareResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D30282001A130002DE96F /* FourSquareResponse.swift */; };
+		E24D302B2001EB8D002DE96F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D302A2001EB8D002DE96F /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E24D302420001199002DE96F /* FourSquareVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareVenue.swift; sourceTree = "<group>"; };
 		E24D302620001290002DE96F /* FourSquareItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareItem.swift; sourceTree = "<group>"; };
 		E24D30282001A130002DE96F /* FourSquareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareResponse.swift; sourceTree = "<group>"; };
+		E24D302A2001EB8D002DE96F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,9 +73,10 @@
 				E24D30081FFFDC2B002DE96F /* AppDelegate.swift */,
 				E24D300A1FFFDC2B002DE96F /* ELInitialViewController.swift */,
 				E24D300C1FFFDC2B002DE96F /* DetailViewController.swift */,
-				E24D301C1FFFECD4002DE96F /* ELFourSquareCodes.swift */,
 				E24D30232000117A002DE96F /* Models */,
 				E24D302020000B0F002DE96F /* Networking */,
+				E24D302C2001EB9E002DE96F /* Extensions */,
+				E24D302D2001EBBA002DE96F /* Supporting Files */,
 				E24D300E1FFFDC2B002DE96F /* Main.storyboard */,
 				E24D30111FFFDC2B002DE96F /* Assets.xcassets */,
 				E24D30131FFFDC2B002DE96F /* LaunchScreen.storyboard */,
@@ -99,6 +102,22 @@
 				E24D302420001199002DE96F /* FourSquareVenue.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E24D302C2001EB9E002DE96F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E24D302A2001EB8D002DE96F /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E24D302D2001EBBA002DE96F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E24D301C1FFFECD4002DE96F /* ELFourSquareCodes.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +200,7 @@
 				E24D301D1FFFECD4002DE96F /* ELFourSquareCodes.swift in Sources */,
 				E24D30091FFFDC2B002DE96F /* AppDelegate.swift in Sources */,
 				E24D302220000FB8002DE96F /* ELNetworkManager.swift in Sources */,
+				E24D302B2001EB8D002DE96F /* String+Extension.swift in Sources */,
 				E24D302520001199002DE96F /* FourSquareVenue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
