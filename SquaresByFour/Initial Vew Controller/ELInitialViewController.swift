@@ -18,11 +18,27 @@ class ELInitialViewController: UIViewController {
     let networkManager = ELNetworkManager()
     let locationManager = CLLocationManager()
     var isLocationAuthorized = false
-//    var currentLocation:CLLocationCoordinate2D!
-//    var flag = true
+    var shouldPerformSegue = true
+    var itemsArray = FourSquareItemsArray()
     
     let searchByInputButtonTitle = "Search Your WorldWide Location"
     let searchByLocationButtonTitle = "Search Near You"
+    
+    lazy var activityIndicator : UIActivityIndicatorView = {
+        
+        var activityIndicator = UIActivityIndicatorView()
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+        activityIndicator.color = UIColor.blue
+        
+        let screenSize: CGRect = UIScreen.main.bounds
+        
+        activityIndicator.frame = CGRect(x: screenSize.width/2 - 25,
+                                         y: screenSize.height/2 - 100,
+                                         width: 50.0,
+                                         height: 50.0)
+        
+        return activityIndicator
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +51,18 @@ class ELInitialViewController: UIViewController {
         
         searchButton.layer.cornerRadius = 5
         searchButton.layer.borderWidth = 0
-        setButtonTitle()
+        setButtonTitle(searchByGPS: isLocationAuthorized)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        shouldPerformSegue = true
     }
 
     // MARK: - UI -
     
-    func setButtonTitle() {
-        let text = (isLocationAuthorized ? searchByLocationButtonTitle : searchByInputButtonTitle)
+    func setButtonTitle(searchByGPS: Bool) {
+        let text = (searchByGPS ? searchByLocationButtonTitle : searchByInputButtonTitle)
         searchButton.setTitle(text, for: .normal)
         searchButton.setNeedsLayout()
         searchButton.reloadInputViews()
@@ -49,6 +70,7 @@ class ELInitialViewController: UIViewController {
     
     // MARK: - IBAction -
     @IBAction func searchTapped(sender: UIButton) {
+         self.searchButton.isEnabled = true
         self.findByInputTextField.resignFirstResponder()
         
         if let input = self.findByInputTextField.text,
@@ -59,22 +81,45 @@ class ELInitialViewController: UIViewController {
             getCurrentLocation()
         } else {
             showAlert()
+            self.searchButton.isEnabled = false
         }
     }
     
     func networkRequestItemsFor(parameter: String, location: String) {
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
         
-        networkManager.requestItemsFor(parameter, location, completion: { (items) in
-            if let items = items {
-                for item in items {
-                    print("*******")
-                    print(item.venue.name)
+        networkManager.requestItemsFor(parameter, location, completion: { [weak self] (items) in
+            
+            DispatchQueue.main.async { () in
+                
+                self?.searchButton.isEnabled = true
+                
+                if self?.activityIndicator.isAnimating == true {
+                    self?.activityIndicator.stopAnimating()
+                    self?.activityIndicator.removeFromSuperview()
                 }
-            } else {
-                print("Some sort of network request failure, try again.")
+            
+                if let items = items {
+                    self?.itemsArray = items
+                    self?.performSegue(withIdentifier: "venuesListVC", sender: self)
+                } else {
+                    print("Some sort of network request failure, try again.")
+                }
             }
         })
     }
+    
+
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "venuesListVC",
+            let venuesVC = segue.destination as? ELVenueListViewController {
+            venuesVC.venuesList = itemsArray
+        }
+    }
+    
     
     // MARK: - Location Methods -
     

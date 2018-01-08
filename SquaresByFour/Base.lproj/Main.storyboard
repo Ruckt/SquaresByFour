@@ -53,11 +53,42 @@
                     <connections>
                         <outlet property="findByInputTextField" destination="Y2U-eE-oho" id="UZD-l2-Uot"/>
                         <outlet property="searchButton" destination="18F-86-6LS" id="fsh-4z-IUE"/>
+                        <segue destination="7b1-af-PhG" kind="show" identifier="venuesListVC" id="YQV-7l-TIj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMI-Ea-zPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-93" y="-358"/>
+            <point key="canvasLocation" x="-76" y="-359"/>
+        </scene>
+        <!--Venues-->
+        <scene sceneID="6N8-z9-y2m">
+            <objects>
+                <viewController title="Venues" id="7b1-af-PhG" customClass="ELVenueListViewController" customModule="SquaresByFour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CPo-ax-3GE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ISt-9N-8hP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ISt-9N-8hP" firstAttribute="leading" secondItem="7eC-Ew-ERU" secondAttribute="leading" id="8Wv-kI-1nG"/>
+                            <constraint firstItem="7eC-Ew-ERU" firstAttribute="trailing" secondItem="ISt-9N-8hP" secondAttribute="trailing" id="Inr-1X-Gdi"/>
+                            <constraint firstItem="ISt-9N-8hP" firstAttribute="top" secondItem="7eC-Ew-ERU" secondAttribute="top" id="c5H-5Y-AqV"/>
+                            <constraint firstItem="7eC-Ew-ERU" firstAttribute="bottom" secondItem="ISt-9N-8hP" secondAttribute="bottom" id="iQB-jg-zyY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7eC-Ew-ERU"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ISt-9N-8hP" id="V1t-8G-pjI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T7Y-I8-YU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="845" y="-359"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cMd-Jx-tmF">

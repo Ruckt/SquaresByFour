@@ -20,12 +20,15 @@ extension ELInitialViewController: CLLocationManagerDelegate, UITextFieldDelegat
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        if let gpsLocation:CLLocationCoordinate2D = locations.last?.coordinate {
-            print(gpsLocation)
+        if shouldPerformSegue == true,
+            let gpsLocation:CLLocationCoordinate2D = locations.last?.coordinate {
             
             let input = "\(gpsLocation.latitude),\(gpsLocation.longitude)"
             networkRequestItemsFor(parameter: "ll", location: input)
+            shouldPerformSegue = false
             return
+        } else {
+             self.searchButton.isEnabled = true
         }
         
         locationManager.stopUpdatingLocation()
@@ -38,7 +41,7 @@ extension ELInitialViewController: CLLocationManagerDelegate, UITextFieldDelegat
             break
         case .authorizedAlways, .authorizedWhenInUse:
             isLocationAuthorized = true
-            setButtonTitle()
+            setButtonTitle(searchByGPS: isLocationAuthorized)
             break
         default:
             break
@@ -49,8 +52,9 @@ extension ELInitialViewController: CLLocationManagerDelegate, UITextFieldDelegat
     @objc func textFieldDidChange(_ textField: UITextField) {
         if let text = textField.text,
             text != "" {
-            
-            print(text)
+            setButtonTitle(searchByGPS: false)
+        } else {
+            setButtonTitle(searchByGPS: true)
         }
     }
     
