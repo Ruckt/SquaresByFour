@@ -27,10 +27,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18F-86-6LS">
-                                <rect key="frame" x="87" y="284" width="200" height="30"/>
+                                <rect key="frame" x="47" y="284" width="280" height="30"/>
                                 <color key="backgroundColor" red="0.47179845190000003" green="0.48709290799999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Bx8-a8-lZy"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="Bx8-a8-lZy"/>
                                 </constraints>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMI-Ea-zPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="274.39999999999998" y="-356.67166416791605"/>
+            <point key="canvasLocation" x="-93" y="-358"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cMd-Jx-tmF">
@@ -75,7 +75,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZGQ-I7-qOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-642" y="-357"/>
+            <point key="canvasLocation" x="-962" y="-358"/>
         </scene>
     </scenes>
 </document>

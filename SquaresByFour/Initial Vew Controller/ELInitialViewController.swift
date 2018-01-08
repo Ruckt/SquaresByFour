@@ -6,16 +6,18 @@
 //  Copyright © 2018 Ruckt. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import CoreLocation
 
-class ELInitialViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
+class ELInitialViewController: UIViewController {
 
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var findByInputTextField: UITextField!
     
     let networkManager = ELNetworkManager()
     let locationManager = CLLocationManager()
+    var isLocationAuthorized = false
 //    var currentLocation:CLLocationCoordinate2D!
 //    var flag = true
     
@@ -31,12 +33,18 @@ class ELInitialViewController: UIViewController, CLLocationManagerDelegate, UITe
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         
-        decorateButton()
+        searchButton.layer.cornerRadius = 5
+        searchButton.layer.borderWidth = 0
+        setButtonTitle()
     }
+
+    // MARK: - UI -
     
-    func decorateButton() {
-        let text = ((CLLocationManager.authorizationStatus() == .authorizedWhenInUse) ? searchByLocationButtonTitle : searchByInputButtonTitle)
+    func setButtonTitle() {
+        let text = (isLocationAuthorized ? searchByLocationButtonTitle : searchByInputButtonTitle)
         searchButton.setTitle(text, for: .normal)
+        searchButton.setNeedsLayout()
+        searchButton.reloadInputViews()
     }
     
     // MARK: - IBAction -
@@ -46,9 +54,12 @@ class ELInitialViewController: UIViewController, CLLocationManagerDelegate, UITe
         if let input = self.findByInputTextField.text,
             input != "" {
             networkRequestItemsFor(parameter: "near", location: input.removingWhitespaces())
+            return
+        } else if isLocationAuthorized {
+            getCurrentLocation()
+        } else {
+            showAlert()
         }
-        
-        //getCurrentLocation()
     }
     
     func networkRequestItemsFor(parameter: String, location: String) {
@@ -73,29 +84,10 @@ class ELInitialViewController: UIViewController, CLLocationManagerDelegate, UITe
         }
     }
     
-    // MARK: - Location Manager Delegate -
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        if let gpsLocation:CLLocationCoordinate2D = locations.last?.coordinate {
-            print(gpsLocation)
-        }
-
-        locationManager.stopUpdatingLocation()
-        // set a flag so segue is only called once
-//        if flag {
-//            flag = false
-//            performSegue(withIdentifier: "showSearch", sender: self)
-//        }
+    // MARK: - Alerts -
+    func showAlert() {
+        let alert = UIAlertController(title: "More Information", message: "Enter your worldwide location or authorize location services.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
-    
-    // MARK: - Text Field Delegate -
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        if let text = textField.text,
-            text != "" {
-            
-            print(text)
-        }
-    }
-
 }
-
