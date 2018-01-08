@@ -11,7 +11,6 @@ import UIKit
 
 class ELFetchServices {
     
-    
     func fetchFourSquareServiceItems(url: URL, completion: @escaping (String?, FourSquareItemsArray?) -> Void) {
         
         let urlRequest = URLRequest(url: url)
@@ -47,6 +46,33 @@ class ELFetchServices {
                 print("Error trying to convert the responseData to JSON using DeCodable")
                 completion(nil, nil)
                 return
+            }
+        }
+        task.resume()
+    }
+    
+    func fetchImageDataService(_ url: URL, completion: @escaping (UIImage?, Error?) -> Void) {
+        
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { (data, response, error) in
+            
+            if let error = error {
+                print("Error downloading image: \(error)")
+                completion(nil, error)
+            } else {
+                guard (response as? HTTPURLResponse) != nil
+                    else {
+                        print("No response on image download")
+                        completion(nil, nil)
+                        return
+                }
+                
+                if let data = data,
+                    let image = UIImage(data: data) {
+                    completion(image, nil)
+                } else {
+                    completion(nil, nil)
+                }
             }
         }
         task.resume()

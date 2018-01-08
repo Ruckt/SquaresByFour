@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ELNetworkManager {
  
@@ -17,7 +18,6 @@ class ELNetworkManager {
     func requestItemsFor(_ parameter: String, _ location: String, completion: @escaping (String?, FourSquareItemsArray?) -> Void) {
         guard let url = getFourSquareURLFor(parameter, location) else { completion(nil, nil); return }
         
-        print("URL: \(url)")
         ELFetchServices().fetchFourSquareServiceItems(url: url, completion: { (headerLocation, fourSquareItems) in
 
             if let items = fourSquareItems {
@@ -28,40 +28,9 @@ class ELNetworkManager {
         })
     }
     
-//    private func requestImageDataForProfiles(_ profileArray: ELCharacterProfileArray, completion: @escaping(_ profileImages: ELCharacterProfilelPlusImageDataArray) -> Void) {
-//
-//        var imagesArray = ELCharacterProfilelPlusImageDataArray()
-//        imagesArray.reserveCapacity(profileArray.count)
-//        var nonImageArray = ELCharacterProfilelPlusImageDataArray()
-//        nonImageArray.reserveCapacity(profileArray.count)
-//
-//        let downloadGroup = DispatchGroup()
-//        let queue = DispatchQueue(label: "requestImageData")
-//
-//        for profile in profileArray {
-//
-//            if let httpUrl = URL(string: profile.iconURL) {
-//                queue.async(group:downloadGroup) {
-//                    downloadGroup.enter()
-//                    ELFetchServices().fetchImageDataService(httpUrl, completion: { (image) in
-//
-//                        let fetchQueue = DispatchQueue(label: "fetchQueue")
-//                        fetchQueue.sync {
-//                            if let image = image {
-//                                imagesArray.append(ELCharacterProfilelPlusImageData(profile: profile, image: image))
-//                            }
-//                        }
-//                        downloadGroup.leave()
-//                    })
-//                }
-//            } else {
-//                let image = UIImage(named:"selfie.png")
-//                nonImageArray.append(ELCharacterProfilelPlusImageData(profile: profile, image: image))
-//            }
-//        }
-//
-//        downloadGroup.notify(queue: queue) {
-//            completion(imagesArray + nonImageArray)
-//        }
-//    }
+    func requestImageFor(_ url: URL, completion: @escaping (UIImage?, Error?) -> Void) {
+        ELFetchServices().fetchImageDataService(url) { (image, error) in
+            completion(image, error)
+        }
+    }
 }

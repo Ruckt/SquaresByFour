@@ -12,6 +12,9 @@
         <array key="Georgia.ttf">
             <string>Georgia</string>
         </array>
+        <array key="GeorgiaItalic.ttf">
+            <string>Georgia-Italic</string>
+        </array>
     </customFonts>
     <scenes>
         <!--^2 x 4-->
@@ -157,10 +160,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Image Provided" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfn-xw-qAu">
+                                <rect key="frame" x="112.5" y="448" width="149" height="19.5"/>
+                                <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Gfn-xw-qAu" firstAttribute="centerX" secondItem="ixh-VJ-1We" secondAttribute="centerX" id="7VV-Y5-bu2"/>
                             <constraint firstItem="gmg-Mc-VhM" firstAttribute="leading" secondItem="fZT-Rl-NYV" secondAttribute="leading" constant="16" id="ApA-2E-leJ"/>
+                            <constraint firstItem="Gfn-xw-qAu" firstAttribute="centerY" secondItem="ixh-VJ-1We" secondAttribute="centerY" id="DQQ-HM-QqU"/>
                             <constraint firstItem="ixh-VJ-1We" firstAttribute="top" secondItem="gmg-Mc-VhM" secondAttribute="bottom" constant="10" id="Hq9-ez-mrc"/>
                             <constraint firstItem="ixh-VJ-1We" firstAttribute="leading" secondItem="fZT-Rl-NYV" secondAttribute="leading" constant="16" id="JpN-tM-sex"/>
                             <constraint firstItem="fZT-Rl-NYV" firstAttribute="trailing" secondItem="gmg-Mc-VhM" secondAttribute="trailing" constant="16" id="PF9-er-KWO"/>
@@ -172,6 +183,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="ixh-VJ-1We" id="C35-0R-ca3"/>
+                        <outlet property="noImageLabel" destination="Gfn-xw-qAu" id="LBF-c6-0c2"/>
                         <outlet property="tipLabel" destination="gmg-Mc-VhM" id="3Jl-RM-pu7"/>
                     </connections>
                 </viewController>
