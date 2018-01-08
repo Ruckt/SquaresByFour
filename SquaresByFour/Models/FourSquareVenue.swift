@@ -12,15 +12,19 @@ typealias ELVenuesArray = [FourSquareVenue]
 
 struct FourSquareVenue: Codable {
     let name: String
-
-//    enum CodingKeys: String, CodingKey {
-//        case name = "name"
-//    }
+    let categories: [FourSquareCategory]
+    let location: FourSquareLocation
 }
 
-//extension FourSquareVenue {
-//    init(from decoder: Decoder) throws {
-//        let values = try decoder.container(keyedBy: CodingKeys.self)
-//        name  = try values.decode(String.self, forKey: .name)
-//    }
-//}
+struct FourSquareLocation: Codable {
+    var distance: Int?
+}
+
+struct FourSquareCategory: Codable {
+    let icon: FourSquareIcon
+}
+
+struct FourSquareIcon: Codable {
+    let prefix: String
+    let suffix: String
+}

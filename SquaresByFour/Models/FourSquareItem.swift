@@ -11,6 +11,6 @@ import Foundation
 typealias FourSquareItemsArray = [FourSquareItem]
 
 struct FourSquareItem: Codable {
-    let referralId: String
     let venue: FourSquareVenue
+    let tips: [FourSquareTip]?
 }

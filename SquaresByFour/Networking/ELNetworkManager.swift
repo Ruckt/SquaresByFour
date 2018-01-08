@@ -9,20 +9,15 @@
 import Foundation
 
 class ELNetworkManager {
-    
-    // if forTextEntry == true {
-    //                    let url = "https://api.foursquare.com/v2/search/recommendations?ll=\(currentLocation.latitude),\(currentLocation.longitude)&v=20160607&intent=coffee&limit=15&client_id=\(client_id)&client_secret=\(client_secret)"
-    //
-    //            let url = "https://api.foursquare.com/v2/venues/explore?near=Philadelphia&oauth_token=QRG32ZJ2S5D0FN1OC5QL5OZUAXQX11KR41SFDF1ZY2NS5AP1&v=20180105
-    // let textLocation = "Philadelphia"
-    
+ 
     func getFourSquareURLFor(_ parameter: String, _ location: String) -> URL? {
-        return URL(string:"https://api.foursquare.com/v2/venues/explore?\(parameter)=\(location)&client_id=\(ELFourSquareCodes.clientId)&client_secret=\(ELFourSquareCodes.clientSecret)&v=20180110")
+        return URL(string:"https://api.foursquare.com/v2/venues/explore?\(parameter)=\(location)&limit=25&client_id=\(ELFourSquareCodes.clientId)&client_secret=\(ELFourSquareCodes.clientSecret)&v=20180110")
     }
     
     func requestItemsFor(_ parameter: String, _ location: String, completion: @escaping (FourSquareItemsArray?) -> Void) {
         guard let url = getFourSquareURLFor(parameter, location) else { completion(nil); return }
         
+        print("URL: \(url)")
         ELFetchServices().fetchFourSquareServiceItems(url: url, completion: { (fourSquareItems) in
 
             if let items = fourSquareItems {

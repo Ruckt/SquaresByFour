@@ -34,17 +34,18 @@ class ELVenueListViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell") else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ELVenueTableVCCell.kCellIdentifier) as? ELVenueTableVCCell else { return UITableViewCell() }
 
         let item = venuesList[indexPath.row]
-        cell.textLabel?.text = item.venue.name
-//        cell.rating.text = String(format: "%.1f", searchResults[(indexPath as NSIndexPath).row]["venue"]["rating"].doubleValue) + "⭐️"
-//        cell.distance.text = "\(searchResults[(indexPath as NSIndexPath).row]["venue"]["location"]["distance"].intValue)m"
-//        cell.address.text = searchResults[(indexPath as NSIndexPath).row]["venue"]["location"]["address"].string
-//
+        cell.venueNameLabel?.text = item.venue.name
+        
+        if let distance = item.venue.location.distance {
+            cell.disatanceLabel?.text = ("\(distance)")
+        }
+
         return cell
     }
-    
+
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        // show the DetailController
 //        performSegue(withIdentifier: "details", sender: self)
