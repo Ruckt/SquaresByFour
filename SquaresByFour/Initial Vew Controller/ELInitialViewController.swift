@@ -20,6 +20,7 @@ class ELInitialViewController: UIViewController {
     var isLocationAuthorized = false
     var shouldPerformSegue = true
     var itemsArray = FourSquareItemsArray()
+    var headerLocation = "Where are you?"
     
     let searchByInputButtonTitle = "Search Your WorldWide Location"
     let searchByLocationButtonTitle = "Search Near You"
@@ -89,7 +90,7 @@ class ELInitialViewController: UIViewController {
         self.view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
         
-        networkManager.requestItemsFor(parameter, location, completion: { [weak self] (items) in
+        networkManager.requestItemsFor(parameter, location, completion: { [weak self] (headerLocation, items) in
             
             DispatchQueue.main.async { () in
                 
@@ -102,6 +103,9 @@ class ELInitialViewController: UIViewController {
             
                 if let items = items {
                     self?.itemsArray = items
+                    if let location = headerLocation {
+                        self?.headerLocation = location
+                    }
                     self?.performSegue(withIdentifier: "venuesListVC", sender: self)
                 } else {
                     print("Some sort of network request failure, try again.")
@@ -117,9 +121,9 @@ class ELInitialViewController: UIViewController {
         if segue.identifier == "venuesListVC",
             let venuesVC = segue.destination as? ELVenueListViewController {
             venuesVC.venuesList = itemsArray
+            venuesVC.title = headerLocation
         }
     }
-    
     
     // MARK: - Location Methods -
     

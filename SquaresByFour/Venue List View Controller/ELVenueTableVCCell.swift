@@ -13,14 +13,12 @@ class ELVenueTableVCCell: UITableViewCell {
     
     static let kCellIdentifier = "VenueTableVCCell"
     
-    @IBOutlet var venueNameLabel: UILabel!
+    @IBOutlet var venueNameLabel: UILabel?
     @IBOutlet var disatanceLabel: UILabel?
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        venueNameLabel.text = ""
+        venueNameLabel?.text = ""
         disatanceLabel?.text = ""
     }
-    
 }
-

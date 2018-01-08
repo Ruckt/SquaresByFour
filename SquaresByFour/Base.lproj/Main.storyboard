@@ -93,7 +93,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRc-VO-LRx">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRc-VO-LRx">
                                                     <rect key="frame" x="309" y="21.5" width="50" height="0.0"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="H4E-uV-ctX"/>
@@ -114,6 +114,7 @@
                                         <connections>
                                             <outlet property="disatanceLabel" destination="lRc-VO-LRx" id="7sE-zi-ZZb"/>
                                             <outlet property="venueNameLabel" destination="yKS-ec-Xke" id="LUU-M6-LSr"/>
+                                            <segue destination="yXM-6A-qre" kind="show" identifier="detailsVC" id="GwN-hx-cSJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -135,6 +136,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7Y-I8-YU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="844" y="-359.37031484257875"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="ydP-64-A5I">
+            <objects>
+                <viewController id="yXM-6A-qre" customClass="ELDetailViewController" customModule="SquaresByFour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9vs-pb-MJF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ixh-VJ-1We">
+                                <rect key="frame" x="16" y="257" width="343" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="400" id="M30-ZX-u32"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmg-Mc-VhM">
+                                <rect key="frame" x="16" y="74" width="343" height="173"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gmg-Mc-VhM" firstAttribute="leading" secondItem="fZT-Rl-NYV" secondAttribute="leading" constant="16" id="ApA-2E-leJ"/>
+                            <constraint firstItem="ixh-VJ-1We" firstAttribute="top" secondItem="gmg-Mc-VhM" secondAttribute="bottom" constant="10" id="Hq9-ez-mrc"/>
+                            <constraint firstItem="ixh-VJ-1We" firstAttribute="leading" secondItem="fZT-Rl-NYV" secondAttribute="leading" constant="16" id="JpN-tM-sex"/>
+                            <constraint firstItem="fZT-Rl-NYV" firstAttribute="trailing" secondItem="gmg-Mc-VhM" secondAttribute="trailing" constant="16" id="PF9-er-KWO"/>
+                            <constraint firstItem="fZT-Rl-NYV" firstAttribute="trailing" secondItem="ixh-VJ-1We" secondAttribute="trailing" constant="16" id="cXf-LK-0af"/>
+                            <constraint firstItem="gmg-Mc-VhM" firstAttribute="top" secondItem="fZT-Rl-NYV" secondAttribute="top" constant="10" id="pXP-1o-dQA"/>
+                            <constraint firstItem="fZT-Rl-NYV" firstAttribute="bottom" secondItem="ixh-VJ-1We" secondAttribute="bottom" constant="10" id="shX-p5-do0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fZT-Rl-NYV"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="ixh-VJ-1We" id="C35-0R-ca3"/>
+                        <outlet property="tipLabel" destination="gmg-Mc-VhM" id="3Jl-RM-pu7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XA1-Yt-5u6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1821.5999999999999" y="-359.37031484257875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cMd-Jx-tmF">

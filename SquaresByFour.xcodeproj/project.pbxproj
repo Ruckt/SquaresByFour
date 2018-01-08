@@ -10,7 +10,7 @@
 		E2126F9D2002EA21000905D5 /* ELInitialViewController+DelegateMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2126F9C2002EA21000905D5 /* ELInitialViewController+DelegateMethods.swift */; };
 		E24D30091FFFDC2B002DE96F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D30081FFFDC2B002DE96F /* AppDelegate.swift */; };
 		E24D300B1FFFDC2B002DE96F /* ELInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D300A1FFFDC2B002DE96F /* ELInitialViewController.swift */; };
-		E24D300D1FFFDC2B002DE96F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D300C1FFFDC2B002DE96F /* DetailViewController.swift */; };
+		E24D300D1FFFDC2B002DE96F /* ELDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24D300C1FFFDC2B002DE96F /* ELDetailViewController.swift */; };
 		E24D30101FFFDC2B002DE96F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E24D300E1FFFDC2B002DE96F /* Main.storyboard */; };
 		E24D30121FFFDC2B002DE96F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E24D30111FFFDC2B002DE96F /* Assets.xcassets */; };
 		E24D30151FFFDC2B002DE96F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E24D30131FFFDC2B002DE96F /* LaunchScreen.storyboard */; };
@@ -31,7 +31,7 @@
 		E24D30051FFFDC2B002DE96F /* SquaresByFour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquaresByFour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E24D30081FFFDC2B002DE96F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E24D300A1FFFDC2B002DE96F /* ELInitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELInitialViewController.swift; sourceTree = "<group>"; };
-		E24D300C1FFFDC2B002DE96F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E24D300C1FFFDC2B002DE96F /* ELDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELDetailViewController.swift; sourceTree = "<group>"; };
 		E24D300F1FFFDC2B002DE96F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E24D30111FFFDC2B002DE96F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E24D30141FFFDC2B002DE96F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,8 +89,8 @@
 			children = (
 				E24D30081FFFDC2B002DE96F /* AppDelegate.swift */,
 				E2126F9B2002EA02000905D5 /* Initial Vew Controller */,
-				E24D300C1FFFDC2B002DE96F /* DetailViewController.swift */,
 				E2F97A3C2002F3B200AB569B /* Venue List View Controller */,
+				E2BC3E8C20034C9E00A5EB30 /* Details View controller */,
 				E24D30232000117A002DE96F /* Models */,
 				E24D302020000B0F002DE96F /* Networking */,
 				E24D302C2001EB9E002DE96F /* Extensions */,
@@ -137,6 +137,14 @@
 				E24D301C1FFFECD4002DE96F /* ELFourSquareCodes.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E2BC3E8C20034C9E00A5EB30 /* Details View controller */ = {
+			isa = PBXGroup;
+			children = (
+				E24D300C1FFFDC2B002DE96F /* ELDetailViewController.swift */,
+			);
+			path = "Details View controller";
 			sourceTree = "<group>";
 		};
 		E2F97A3C2002F3B200AB569B /* Venue List View Controller */ = {
@@ -221,7 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E28506032003245C0013728F /* ELVenueTableVCCell.swift in Sources */,
-				E24D300D1FFFDC2B002DE96F /* DetailViewController.swift in Sources */,
+				E24D300D1FFFDC2B002DE96F /* ELDetailViewController.swift in Sources */,
 				E24D300B1FFFDC2B002DE96F /* ELInitialViewController.swift in Sources */,
 				E24D302720001290002DE96F /* FourSquareItem.swift in Sources */,
 				E285060520033C040013728F /* FourSquareTip.swift in Sources */,

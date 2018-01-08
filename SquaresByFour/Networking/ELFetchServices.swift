@@ -12,7 +12,7 @@ import UIKit
 class ELFetchServices {
     
     
-    func fetchFourSquareServiceItems(url: URL, completion: @escaping (FourSquareItemsArray?) -> Void) {
+    func fetchFourSquareServiceItems(url: URL, completion: @escaping (String?, FourSquareItemsArray?) -> Void) {
         
         let urlRequest = URLRequest(url: url)
         let session = URLSession.shared
@@ -20,30 +20,32 @@ class ELFetchServices {
         let task = session.dataTask(with: urlRequest) { (data, urlResponse, error) in
             guard error == nil else {
                 print("Error while fetching image data: \(error!)")
-                completion(nil)
+                completion(nil, nil)
                 return
             }
             
             guard let responseData = data else {
                 print("Error: did not receive good data")
-                completion(nil)
+                completion(nil, nil)
                 return
             }
             
             do {
                 let decoded = try JSONDecoder().decode(FourSquareResponse.self, from: responseData)
                 
-                let groups  = decoded.response.groups
+                let responseDecoded = decoded.response
+                let headerLocation = responseDecoded.headerLocation
+                let groups = responseDecoded.groups
                 
                 if groups.count > 0 {
-                    completion(groups[0].items)
+                    completion(headerLocation, groups[0].items)
                     return
                 } else {
-                    completion(nil)
+                    completion(nil, nil)
                 }
             } catch {
                 print("Error trying to convert the responseData to JSON using DeCodable")
-                completion(nil)
+                completion(nil, nil)
                 return
             }
         }

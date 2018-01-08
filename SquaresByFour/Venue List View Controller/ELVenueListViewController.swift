@@ -20,13 +20,13 @@ class ELVenueListViewController: UIViewController, UITableViewDelegate, UITableV
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 70.0
         
         for item in venuesList {
             print("*******")
             print(item.venue.name)
         }
     }
-    
     
     // MARK: - TableView methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,34 +40,21 @@ class ELVenueListViewController: UIViewController, UITableViewDelegate, UITableV
         cell.venueNameLabel?.text = item.venue.name
         
         if let distance = item.venue.location.distance {
-            cell.disatanceLabel?.text = ("\(distance)")
+            cell.disatanceLabel?.text = ("\(distance)m")
         }
 
         return cell
     }
 
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        // show the DetailController
-//        performSegue(withIdentifier: "details", sender: self)
-//    }
-    
-    
     // MARK: - Navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // check if segue is to the DetailsController
-//        if segue.identifier == "details" {
-//
-//            let vc = segue.destination as! DetailsController
-//            let selectedCell = tableView.indexPathForSelectedRow!
-//
-//            // Set the title on the details controller and deselect tableview cell
-//            vc.venueName = searchResults[(selectedCell as NSIndexPath).row]["venue"]["name"].string
-//            let lat = searchResults[(selectedCell as NSIndexPath).row]["venue"]["location"]["lat"].doubleValue
-//            let lng = searchResults[(selectedCell as NSIndexPath).row]["venue"]["location"]["lng"].doubleValue
-//            vc.location = CLLocationCoordinate2D(latitude: lat, longitude: lng)
-//            vc.venueId = searchResults[(selectedCell as NSIndexPath).row]["venue"]["id"].stringValue
-//
-//            tableView.deselectRow(at: selectedCell, animated: false)
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "detailsVC",
+            let detailsVC = segue.destination as? ELDetailViewController,
+            let indexPath = tableView.indexPathForSelectedRow {
+            
+            detailsVC.item = self.venuesList[indexPath.row]
+            tableView.deselectRow(at: indexPath, animated: false)
+        }
+    }
 }
